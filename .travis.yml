@@ -5,7 +5,7 @@ os:
 before_install:
 - sudo apt-get -qq update
 - sudo apt-get install -y libpng-dev
-- sudo add-apt-repository ppa:team-gcc-arm-embedded/ppa
+- sudo add-apt-repository -y ppa:team-gcc-arm-embedded/ppa
 - sudo apt-get update
 - sudo apt-get -y install arm-gcc-none-eabi
 script:
