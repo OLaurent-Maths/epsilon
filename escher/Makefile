@@ -75,7 +75,8 @@ INLINER := escher/image/inliner
 
 $(INLINER): escher/image/inliner.c
 	@echo "HOSTCC  $@"
-$(HOSTCC) -std=c99 -I/usr/include/libpng12 -L/usr/lib/x86_64-linux-gnu -lpng12 $< -o $@
+	$(HOSTCC) -std=c99 -I/usr/include/libpng12 -L/usr/lib/x86_64-linux-gnu -lpng12 $< -o $@
+	echo done
 
 %.h %.cpp : %.png $(INLINER)
 	@echo "INLINER $@"
