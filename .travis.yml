@@ -8,7 +8,7 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-5.1
+            - g++-5
       env: PLATFORM=device
     - addons:
         apt:
@@ -17,13 +17,15 @@ matrix:
             - llvm-toolchain-precise-3.6
           packages:
             - clang-3.6
-      env: PLATFORM=SIMULATOR
+      env: PLATFORM=simulator
 
 os: linux
+env:
+- TARGET=app.elf
+- TARGET=test.elf
 before_install:
 - sudo apt-add-repository -y 'deb http://archive.ubuntu.com/ubuntu trusty main universe multiverse restricted'
 - sudo apt-get -qq update
 - sudo apt-get -y install gcc-arm-none-eabi
 script:
-- make clean && make app.elf
-- make clean && make test.elf
+- make clean && make $(TARGET)
