@@ -10,17 +10,9 @@ matrix:
 
 os: linux
 before_install:
-- sudo apt-add-repository -y 'deb http://archive.ubuntu.com/ubuntu trusty main universe multiverse restricted'
-- sudo apt-get -qq update
-- sudo apt-get -y install gcc-arm-none-eabi
-  # g++7.2
-- if [ "$CXX" = "g++" ]; then sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y; fi
-- if [ "$CXX" = "g++" ]; then sudo apt-get update -qq; fi
-- if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-6; fi
-- if [ "$CXX" = "g++" ]; then export CXX="g++-6"; fi
-  # clang 3.4
-- if [ "$CXX" == "clang++" ]; then sudo apt-get install --allow-unauthenticated -qq clang-3.4; fi
-- if [ "$CXX" == "clang++" ]; then export CXX="clang++-3.4"; fi
+  # gcc-arm-none-eabi
+- if [ "$CXX" = "g++" ]; then wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/gcc-arm-none-eabi-6-2017-q2-update-linux.tar.bz2; fi
+- if [ "$CXX" = "g++" ]; then tar xfj gcc-arm-none-eabi-6-2017-q2-update-linux.tar.bz2; fi
+- if [ "$CXX" = "g++" ]; then export PATH=gcc-arm-none-eabi-6-2017-q2-update/bin:$PATH; fi
 script:
-- $CXX --version
 - make clean && make app.elf
