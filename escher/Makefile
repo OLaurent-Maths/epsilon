@@ -71,7 +71,7 @@ objs += $(addprefix escher/src/,\
   window.o\
 )
 
-INLINER := escher/image/inliner
+INLINER := ./escher/image/inliner
 
 $(INLINER): escher/image/inliner.c
 	@echo "HOSTCC  $@"
