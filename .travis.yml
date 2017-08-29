@@ -14,8 +14,8 @@ before_install:
 - sudo apt-get -qq update
 - sudo apt-get -y install gcc-arm-none-eabi
   # g++7.2
-- if [ "$CXX" = "g++" ]; then sudo add-apt-repository ppa:ubuntu-toolchain-r/test g++-6; fi
-- if [ "$CXX" = "g++" ]; then sudosudo apt-get update -qq g++-6; fi
+- if [ "$CXX" = "g++" ]; then sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y; fi
+- if [ "$CXX" = "g++" ]; then sudosudo apt-get update -qq; fi
 - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-6; fi
 - if [ "$CXX" = "g++" ]; then export CXX="g++-6"; fi
   # clang 3.4
