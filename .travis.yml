@@ -6,7 +6,7 @@ os:
 before_install:
 - sudo apt-add-repository -y 'deb http://archive.ubuntu.com/ubuntu trusty main universe multiverse restricted'
 - sudo apt-get -qq update
-- sudo apt-get -y install arm-gcc-none-eabi
+- sudo apt-get -y install gcc-arm-none-eabi
 script:
 - make app.elf
 - make test.elf
