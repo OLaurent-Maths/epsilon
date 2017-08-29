@@ -71,16 +71,15 @@ objs += $(addprefix escher/src/,\
   window.o\
 )
 
-INLINER := ./escher/image/inliner
+INLINER := escher/image/inliner
 
 $(INLINER): escher/image/inliner.c
 	@echo "HOSTCC  $@"
-	echo `libpng-config --cflags`
-	echo `libpng-config --ldflags`
 $(HOSTCC) -std=c99 -I/usr/include/libpng12 -L/usr/lib/x86_64-linux-gnu -lpng12 $< -o $@
 
 %.h %.cpp : %.png $(INLINER)
 	@echo "INLINER $@"
+	ls escher/image/
 	@$(INLINER) $<
 
 INLINER_PRODUCTS = $(1:.png=.h) $(1:.png=.cpp) $(1:.png=.o)
