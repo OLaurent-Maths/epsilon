@@ -75,6 +75,8 @@ INLINER := escher/image/inliner
 
 $(INLINER): escher/image/inliner.c
 	@echo "HOSTCC  $@"
+	echo `libpng-config --cflags`
+	echo `libpng-config --ldflags`
 	$(HOSTCC) -std=c99 `libpng-config --cflags` `libpng-config --ldflags` $< -o $@
 
 %.h %.cpp : %.png $(INLINER)
