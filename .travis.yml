@@ -1,12 +1,31 @@
 language: cpp
 sudo: required
 dist: trusty
-os:
-- linux
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5.1
+    - env: PLATFORM=device
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.6
+          packages:
+            - clang-3.6
+    - env: PLATFORM=SIMULATOR
+
+
 before_install:
 - sudo apt-add-repository -y 'deb http://archive.ubuntu.com/ubuntu trusty main universe multiverse restricted'
 - sudo apt-get -qq update
 - sudo apt-get -y install gcc-arm-none-eabi
 script:
-- make app.elf
-- make test.elf
+- make clean && make app.elf
+- make clean && make test.elf
