@@ -5,5 +5,5 @@ compiler:
 - gcc
 os:
 - linux
-before_install: sudo install libpng-dev
+before_install: sudo apt-get install libpng-dev
 script: make app.elf && make test.elf
