@@ -1,13 +1,11 @@
 language: cpp
 sudo: required
-compiler:
-- clang
-- gcc
 os:
 - linux
 before_install:
 - sudo apt-get -qq update
 - sudo apt-get install -y libpng-dev
+- sudo apt-get -y install arm-gcc-none-eabi
 script:
 - make app.elf
 - make test.elf
