@@ -81,6 +81,10 @@ namespace I18n {
     CalculApp,
     CalculAppCapital,
 
+    /* RPNCalculation */
+    CalculRpnApp,
+    CalculRpnAppCapital,
+
     /* Fonction */
     FunctionApp,
     FunctionAppCapital,

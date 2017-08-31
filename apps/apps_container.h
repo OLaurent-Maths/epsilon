@@ -5,6 +5,7 @@
 #include "graph/app.h"
 #include "probability/app.h"
 #include "calculation/app.h"
+#include "calculation-rpn/app.h"
 #include "regression/app.h"
 #include "sequence/app.h"
 #include "settings/app.h"
@@ -57,7 +58,7 @@ private:
   Timer * containerTimerAtIndex(int i) override;
   bool processEvent(Ion::Events::Event event);
   void resetShiftAlphaStatus();
-  static constexpr int k_numberOfCommonApps = 9;
+  static constexpr int k_numberOfCommonApps = 10;
   static constexpr int k_totalNumberOfApps = 2+k_numberOfCommonApps;
   AppsWindow m_window;
   EmptyBatteryWindow m_emptyBatteryWindow;
@@ -78,6 +79,7 @@ private:
   OnBoarding::App::Snapshot m_onBoardingSnapshot;
   Home::App::Snapshot m_homeSnapshot;
   Calculation::App::Snapshot m_calculationSnapshot;
+  RPNCalculation::App::Snapshot m_RPNCalculationSnapshot;
   Graph::App::Snapshot m_graphSnapshot;
   Sequence::App::Snapshot m_sequenceSnapshot;
   Settings::App::Snapshot m_settingsSnapshot;
